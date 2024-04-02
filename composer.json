@@ -1,0 +1,13 @@
+{
+    "name": "vendor/novi",
+    "description": "Destinasi Wisata",
+    "type": "project",
+    "authors": [
+        {
+            "name": "noviantisafitri",
+            "email": "noviantis112@gmail.com"
+        }
+    ],
+    "require": {"php" : ">=8"},
+    "autoload": {"psr-4": {"App\\" : "app"}}
+}
