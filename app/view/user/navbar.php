@@ -8,6 +8,7 @@
         <div class="navbar-nav mr-auto" style="font-size: 20px;">
           <a class="nav-link" aria-current="page" href="/destinasi/app/view/user/#home">Home</a>
           <a class="nav-link" href="/destinasi/app/view/user/#destination">Destinasi</a>
+          <a class="nav-link" href="/destinasi/app/view/user/#blog">Blog</a>
           <a class="nav-link" href="/destinasi/app/view/user/#gallery">Galeri</a>
           <a class="nav-link" href="/destinasi/app/view/user/favorite.php">Favorite</a>
         </div>

@@ -53,13 +53,17 @@ require '/xampp/htdocs/destinasi/app/config/database.php';
 
       <?php include '/xampp/htdocs/destinasi/app/view/user/destinasi.php' ?>
 
+      <!-- 
+        - #BLOG
+      -->
+
+      <?php include '/xampp/htdocs/destinasi/app/view/user/blog.php' ?>
 
       <!-- 
         - #GALLERY
       -->
 
       <?php include '/xampp/htdocs/destinasi/app/view/user/galery.php' ?>
-
 
       <!-- 
         - #CONTACT

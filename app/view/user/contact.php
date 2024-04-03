@@ -55,7 +55,7 @@
                                 <!-- Submit button -->
                                 <div class="form-group d-flex justify-content-center">
                                     <div>
-                                        <button class="btn btn-primary btn-lg disabled mx-auto" id="submitButton" type="submit" style="padding: 10px 40px;">Submit</button>
+                                        <button class="btn btn-primary btn-lg mx-auto" id="submitButton" type="submit" style="padding: 10px 40px;">Submit</button>
                                     </div>
                                 </div>
 
@@ -71,3 +71,4 @@
     </div>
     </div>
 </section>
+<script src="/destinasi/public/assets/js/contact.js"></script>

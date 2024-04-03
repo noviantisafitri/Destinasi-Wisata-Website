@@ -1,7 +1,7 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<i class='bx bxs-smile'></i>
+			<P class="m-2">DW</P>
 			<span class="text"></span>
 		</a>
 		<ul class="side-menu top" style="padding: 0px;">
