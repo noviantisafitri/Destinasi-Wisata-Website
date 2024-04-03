@@ -49,7 +49,7 @@ $profil = get_user_profile($_SESSION['user_id']);
                                             <input type="file" name="upload_path" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <button type="submit" name="save_destinasi" class="btn btn-primary">Save destinasi</button>
+                                            <button type="submit" name="save_destinasi" class="btn btn-primary">Simpan</button>
                                         </div>
 
                                 </form>

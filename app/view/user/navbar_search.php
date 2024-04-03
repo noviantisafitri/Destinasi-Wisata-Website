@@ -24,8 +24,6 @@ if (isset($_GET['search'])) {
             function hideContent() {
                 document.getElementById("destination").style.display = "none";
             }
-
-            // Panggil fungsi ketika halaman dimuat
             window.onload = hideContent;
         </script>
         <?php
@@ -37,7 +35,7 @@ if (isset($_GET['search'])) {
             $upload_path = $row['upload_path'];
         ?>
             <div class="more-destination-container m-5">
-                <a href="/destinasi/app/view/user/favorite.php" class="btn btn-primary">Kembali</a>
+                <a href="/destinasi/app/view/user/more_destinasi.php" class="btn btn-primary m-5">Kembali</a>
             </div>
             <ul id="content" class="popular-list m-5">
                 <li>
@@ -46,20 +44,17 @@ if (isset($_GET['search'])) {
                             <img src="/destinasi/uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
                         </figure>
                         <div class="card-content">
-                            <div class="card-rating">
-                                <button type="button" class="btn-favorite" data-destination-id="<?= $destination_id ?>">Hapus Favorite</button>
+                                <p class="card-subtitle">
+                                    <a href="#"><?= $location ?></a>
+                                </p>
+                                <h3 class="h3 card-title">
+                                    <a href="#"><?= $title ?></a>
+                                </h3>
+                                <p class="card-text">
+                                    <?= $description ?>
+                                </p>
                             </div>
-                            <p class="card-subtitle">
-                                <a href="#"><?= $location ?></a>
-                            </p>
-                            <h3 class="h3 card-title">
-                                <a href="#"><?= $title ?></a>
-                            </h3>
-                            <p class="card-text">
-                                <?= $description ?>
-                            </p>
                         </div>
-                    </div>
                 </li>
             </ul>
         <?php
@@ -76,7 +71,7 @@ if (isset($_GET['search'])) {
             window.onload = hideContent;
         </script>
         <div class="more-destination-container m-5">
-            <a href="/destinasi/app/view/user/favorite.php" class="btn btn-primary">Back</a>
+            <a href="/destinasi/app/view/user/favorite.php" class="btn btn-primary m-5">Kembali</a>
         </div>
         <div class="container d-flex justify-content-center align-items-center" style="height: 50vh;">
             <h4>Destinasi Wisata tidak ditemukan</h4>
@@ -106,8 +101,8 @@ if (isset($_GET['search'])) {
                     <a class="nav-link" href="/destinasi/app/view/user/#gallery">Galeri</a>
                     <a class="nav-link" href="/destinasi/app/view/user/favorite.php">Favorite</a>
                     <div class="navbar-nav ms-auto" style="font-size: 18px;">
-          <a class="nav-link btn text-primary" href="/destinasi/app/view/login.php"><?php echo "Halo, " . $_SESSION['first_name'] ?> <i style="font-size: 26px; float: inline-end; margin-left: 5px;" class='bx bx-log-out'></i></a>
-        </div>
+                        <a class="nav-link btn text-primary" href="/destinasi/app/view/login.php"><?php echo "Halo, " . $_SESSION['first_name'] ?> <i style="font-size: 26px; float: inline-end; margin-left: 5px;" class='bx bx-log-out'></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/destinasi/public/assets/css/login.css" />
   <title>Destinasi Wisata</title>
 </head>
 
@@ -15,21 +15,13 @@
   <!-- Section: Design Block -->
   <section class="text-center">
     <!-- Background image -->
-    <div class="p-5 bg-image" style="
-        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
-        height: 300px;
-        "></div>
-    <!-- Background image -->
-    <div style="        
-          display: flex;
-          justify-content: center;
-          align-items: center;">
-      <div class="card mx-1 mx-md-5 shadow-5-strong" style="
-        margin-top: -200px;
-        margin-bottom: 100px;
+    <div class="size-layar p-2 bg-image" style="background-image: url('/destinasi/uploads/rumah ulin.jpg'); min-height: 100vh; background-size: cover;">
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="card mx-1 mx-md-5 shadow-5-strong mt-4" style="
         background: hsla(0, 0%, 100%, 0.8);
         backdrop-filter: blur(30px);
-        width: 75%;
+        width: 60%;
         ">
         <div class="card-body px-md-5">
           <div class="row d-flex justify-content-center">

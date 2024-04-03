@@ -66,7 +66,7 @@ $profil = get_user_profile($_SESSION['user_id']);
                                             </div>
                                             <div class="mb-3">
                                                 <button type="submit" name="update_destinasi" class="btn btn-primary">
-                                                    Update destinasi
+                                                    Ubah
                                                 </button>
                                             </div>
 

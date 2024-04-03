@@ -10,10 +10,11 @@
           <a class="nav-link" href="/destinasi/app/view/user/#destination">Destinasi</a>
           <a class="nav-link" href="/destinasi/app/view/user/#blog">Blog</a>
           <a class="nav-link" href="/destinasi/app/view/user/#gallery">Galeri</a>
+          
           <a class="nav-link" href="/destinasi/app/view/user/favorite.php">Favorite</a>
         </div>
         <div class="navbar-nav ms-auto" style="font-size: 20px;">
-          <a class="nav-link btn text-primary" href="/destinasi/app/view/login.php"><?php echo "Halo, " . $_SESSION['first_name'] ?> <i style="font-size: 26px; float: inline-end; margin-left: 5px;" class='bx bx-log-out'></i></a>
+          <a class="nav-link btn text-primary"  href="/destinasi/app/view/login.php"><?php echo "Halo, " . $_SESSION['first_name'] ?> <i style="font-size: 26px; float: inline-end; margin-left: 5px;" class='bx bx-log-out'></i></a>
         </div>
       </div>
     </div>

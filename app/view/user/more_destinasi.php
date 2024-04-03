@@ -48,12 +48,12 @@ require '/xampp/htdocs/destinasi/app/config/database.php';
 
             <ul class="popular-list">
                 <?php
-                $modal_count = 0; // Initialize modal count
+                $modal_count = 0; 
                 $query = "SELECT * FROM destinasi";
                 $result = mysqli_query($koneksi, $query);
                 if ($result && mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        $modal_count++; // Increment modal count for each destination
+                        $modal_count++; 
                         $title = $row['title'];
                         $location = $row['location'];
                         $description = $row['description'];

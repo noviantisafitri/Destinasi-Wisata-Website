@@ -63,11 +63,11 @@ if (isset($_POST['save_destinasi'])) {
                 $result = mysqli_stmt_execute($stmt);
 
                 if ($result) {
-                    $_SESSION['message'] = "Destinasi Created Successfully";
+                    $_SESSION['message'] = "Destinasi berhasil ditambahkan";
                     header("Location: " . $_SERVER['HTTP_REFERER']);
                     exit(0);
                 } else {
-                    $_SESSION['message'] = "Destinasi Not Created";
+                    $_SESSION['message'] = "Destinasi gagal ditambahkan";
                     header("Location: " . $_SERVER['HTTP_REFERER']);
                     exit(0);
                 }

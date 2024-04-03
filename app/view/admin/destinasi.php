@@ -21,6 +21,7 @@ $query_run = mysqli_query($koneksi, $query);
     <section id="content">
         <?php include '/xampp/htdocs/destinasi/app/view/admin/inc/navbar.php'; ?>
         <!-- MAIN -->
+        
         <main>
             <div class="head-title">
                 <div class="left">
@@ -35,6 +36,7 @@ $query_run = mysqli_query($koneksi, $query);
                         <h3></h3>
                         <a href="/destinasi/app/view/admin/destinasi_create.php" class="add_destinasi btn btn-primary float-end mb-5">Tambah Destinasi</a>
                         <?php include('/xampp/htdocs/destinasi/app/view/admin/message.php'); ?>
+
                     </div>
                     <table class="table table-hover mt-5">
                         <thead>
@@ -94,8 +96,10 @@ $query_run = mysqli_query($koneksi, $query);
     </section>
     <!-- CONTENT -->
     <script src="/destinasi/public/assets/js/sidebar.js"></script>
-    <script>
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Summernote JS - CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
 </body>
 

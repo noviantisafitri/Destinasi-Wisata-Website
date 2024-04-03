@@ -1,8 +1,3 @@
-<?php
-// session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,50 +15,43 @@ require '/xampp/htdocs/destinasi/app/config/database.php';
   <!-- Section: Design Block -->
   <section class="text-center">
     <!-- Background image -->
-    <div class="p-5 bg-image" style="
-        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
-        height: 300px;
-        "></div>
-    <!-- Background image -->
-    <div style="        
-          display: flex;
-          justify-content: center;
-          align-items: center;">
-      <div class="card mx-1 mx-md-5 shadow-5-strong" style="
-        margin-top: -200px;
-        background: hsla(0, 0%, 100%, 0.8);
-        backdrop-filter: blur(30px);
-        width: 50%;
-        ">
-        <div class="card-body px-md-5">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-8">
-            <?php include('/xampp/htdocs/destinasi/app/view/admin/message.php'); ?>
+    <div class="p-5 bg-image" style="background-image: url('/destinasi/uploads/rumah ulin.jpg'); height: 100vh; background-size: cover;"> <!-- Tambahkan inline CSS untuk gambar latar belakang -->
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <div class="card mx-1 mx-md-5 shadow-5-strong" style="margin-top: 5rem; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px); width: 50%;">
+          <div class="card-body px-md-5">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-8">
+                <h2 class="fw-bold mb-5">Login</h2>
+                <form action="/destinasi/app/model/login.php" method="POST">
 
-              <h2 class="fw-bold mb-5">Login</h2>
-              <form action="/destinasi/app/model/login.php" method="POST">
+                  <!-- Email input -->
+                  <div class="form-outline mb-4 text-start">
+                    <label class="form-label" for="email">Email address</label>
+                    <input type="email" id="email" name="email" class="form-control" />
+                  </div>
 
-                <!-- Email input -->
-                <div class="form-outline mb-4 text-start">
-                  <label class="form-label" for="form3Example3">Email</label>
-                  <input type="email" id="email" name="email" class="form-control" />
-                </div>
+                  <!-- Password input -->
+                  <div class="form-outline mb-4 text-start">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" />
+                  </div>
 
-                <!-- Password input -->
-                <div class="form-outline mb-4 text-start">
-                  <label class="form-label" for="form3Example4">Password</label>
-                  <input type="password" id="password" name="password" class="form-control" />
-                </div>
+                  <!-- Checkbox -->
+                  <div class="form-check mb-4 text-start">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Ingat saya</label>
+                  </div>
 
-                <!-- Submit button -->
-                <div class="col">
-                  <button type="submit" class="btn btn-primary btn-block mb-4">
-                    Login
-                  </button>
-                </div>
 
-              </form>
-              <p class="mb-0">Belum memiliki akun? <a href="/destinasi/app/view/registrasi.php">Sign Up</a></p>
+                  <!-- Submit button -->
+                  <div class="col">
+                    <button type="submit" class="btn btn-primary btn-block mb-4">
+                      Login
+                    </button>
+                  </div>
+                </form>
+                <p class="mb-0">Belum memiliki akun? <a href="/destinasi/app/view/registrasi.php">Sign Up</a></p>
+              </div>
             </div>
           </div>
         </div>

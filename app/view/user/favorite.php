@@ -1,6 +1,8 @@
 <?php
 session_start();
 require '/xampp/htdocs/destinasi/app/config/database.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -114,10 +116,10 @@ require '/xampp/htdocs/destinasi/app/config/database.php';
                 <?php
                         }
                     } else {
-                        echo "Tidak ada daftar destinasi difavorite";
+                        // echo "Tidak ada daftar destinasi difavorite";
                     }
                 } else {
-                    echo ("User tidak ditemukan");
+                    // echo ("User tidak ditemukan");
                 }
                 ?>
             </ul>
