@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $row['email'];
         $_SESSION['first_name'] = $row['first_name'];
         $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['role'] = $row['role'];
 
         // Memeriksa role user
         if ($row['role'] == 'Admin') {

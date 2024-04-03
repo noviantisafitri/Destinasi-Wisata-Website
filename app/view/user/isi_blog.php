@@ -2,6 +2,11 @@
 session_start();
 require '/xampp/htdocs/destinasi/app/config/database.php';
 
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
+    header("Location: /destinasi/app/view/login.php");
+    exit();
+}
+
 // Mendapatkan id blog dari URL
 $id_blog = $_GET['id'];
 

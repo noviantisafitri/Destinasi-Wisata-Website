@@ -3,6 +3,11 @@ session_start();
 require '/xampp/htdocs/destinasi/app/config/database.php';
 require '/xampp/htdocs/destinasi/app/model/users.php';
 
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+    header("Location: /destinasi/app/view/login.php");
+    exit();
+}
+
 // Ambil data profil pengguna dari database
 $profil = get_user_profile($_SESSION['user_id']);
 ?>
