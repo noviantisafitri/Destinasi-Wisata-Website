@@ -27,7 +27,11 @@ $result = $koneksi->query($query);
                             </figure>
                             <div class="card-content">
                                 <h3 class="h3 card-title"><?php echo $row['title']; ?></h3>
-                                <p class="card-text"><?php echo $row['dekripsi']; ?></p>
+                                <p class="card-text" style="font-size: 14px; width: 100%;"><?php
+                                        $deskripsi = $row['dekripsi'];;
+                                        echo strlen($deskripsi) > 250 ? substr($deskripsi, 0, 250) . '...' : $deskripsi;
+                                        ?></p>
+                                
                                 <a href="/destinasi/app/view/user/isi_blog.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary">Baca</a>
                             <!-- <a href="/destinasi/app/view/user/isi_blog.php" class="btn btn-secondary">Baca</a> -->
                             </div>

@@ -19,7 +19,7 @@ if (isset($_POST['destination_id']) && isset($_SESSION['user_id'])) {
             $row_title = mysqli_fetch_assoc($result_title);
             $destination_title = $row_title['title'];
 
-            setcookie("favorite_destination_title", $destination_title, time() + (86400 * 30), "/"); // Cookie berlaku selama 30 hari
+            setcookie("favorite_destination_title", $destination_title, time() + (86400 * 30), "/"); 
 
             $query_insert = "INSERT INTO favorites (user_id, destination_id, created_at) VALUES ('$user_id', '$destination_id', NOW())";
             $result_insert = mysqli_query($koneksi, $query_insert);
