@@ -20,14 +20,14 @@ $profil = get_user_profile($_SESSION['user_id']);
         <main>
             <div class="container">
 
-                <?php include('/xampp/htdocs/tour-website/app/view/pages/admin/m_message.php'); ?>
+                <?php include('/xampp/htdocs/destinasi/app/view/admin/message.php'); ?>
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>destinasi Edit
-                                    <a href="/destinasi/app/view/admin/destinasi.php" class="btn btn-danger float-end">BACK</a>
+                                <h4>Edit Destinasi Wisata
+                                    <a href="/destinasi/app/view/admin/destinasi.php" class="btn btn-danger float-end">Kembali</a>
                                 </h4>
                             </div>
                             <div class="card-body">
@@ -87,6 +87,7 @@ $profil = get_user_profile($_SESSION['user_id']);
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Summernote JS - CDN Link -->
             <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
             <script>
                 $(document).ready(function() {
                     $("#your_summernote").summernote();
@@ -94,6 +95,11 @@ $profil = get_user_profile($_SESSION['user_id']);
                 });
             </script>
             <!-- //Summernote JS - CDN Link -->
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+    <script src="/destinasi/public/assets/js/sidebar.js"></script>
 </body>
 
 </html>

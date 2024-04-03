@@ -46,13 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
     mysqli_stmt_bind_param($stmt, "sssss", $first_name, $last_name, $email, $password, $role);
 
     if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('Registrasi berhasil, silahkan Login');</script>";
-        header("Location: /destinasi/app/view/login.php");
-        exit();
+        $_SESSION['message'] = "Registrasi berhasil, silahkan Login";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit(0);
     } else {
-        echo "<script>alert('Registrasi gagal');</script>";
-        echo "<script>window.history.back();</script>"; 
-        exit(); 
+        $_SESSION['message'] = "Registrasi Gagal";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit(0);
     }
 }
 ?>

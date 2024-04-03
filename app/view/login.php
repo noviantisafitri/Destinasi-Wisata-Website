@@ -1,3 +1,8 @@
+<?php
+// session_start();
+require '/xampp/htdocs/destinasi/app/config/database.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,12 +38,14 @@
         <div class="card-body px-md-5">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
+            <?php include('/xampp/htdocs/destinasi/app/view/admin/message.php'); ?>
+
               <h2 class="fw-bold mb-5">Login</h2>
               <form action="/destinasi/app/model/login.php" method="POST">
 
                 <!-- Email input -->
                 <div class="form-outline mb-4 text-start">
-                  <label class="form-label" for="form3Example3">Email address</label>
+                  <label class="form-label" for="form3Example3">Email</label>
                   <input type="email" id="email" name="email" class="form-control" />
                 </div>
 

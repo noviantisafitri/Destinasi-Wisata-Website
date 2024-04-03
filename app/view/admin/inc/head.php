@@ -17,6 +17,5 @@
 	<!-- My CSS -->
 	<!-- <link rel="stylesheet" href="/destinasi/public/assets/css/dashboard.css"> -->
 	<link rel="stylesheet" href="/destinasi/public/assets/css/dash.css">
-
 	<title>Destinasi Wisata</title>
 </head>

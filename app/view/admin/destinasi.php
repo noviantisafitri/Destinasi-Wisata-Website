@@ -33,7 +33,8 @@ $query_run = mysqli_query($koneksi, $query);
                     <div class="head">
                         <!-- <h3>Destinasi Wisata</h3> -->
                         <h3></h3>
-                        <a href="/destinasi/app/view/admin/destinasi_create.php" class="add_destinasi btn btn-primary float-end mb-5">Add Destinasi</a>
+                        <a href="/destinasi/app/view/admin/destinasi_create.php" class="add_destinasi btn btn-primary float-end mb-5">Tambah Destinasi</a>
+                        <?php include('/xampp/htdocs/destinasi/app/view/admin/message.php'); ?>
                     </div>
                     <table class="table table-hover mt-5">
                         <thead>
@@ -50,7 +51,7 @@ $query_run = mysqli_query($koneksi, $query);
                             <?php while ($row = mysqli_fetch_assoc($query_run)) : ?>
                                 <tr>
                                     <th scope="row" style="padding-top: 1%;">
-                                    <?php
+                                        <?php
                                         $id = $row['id'];
                                         echo strlen($id) > 15 ? substr($id, 0, 15) . '...' : $id;
                                         ?>
@@ -72,12 +73,14 @@ $query_run = mysqli_query($koneksi, $query);
                                     </td>
                                     <td><?php echo $row['date_created']; ?></td>
                                     <td class="tabel-button">
-                                        <a href="/destinasi/app/view/admin/destinasi_view.php?id=<?= $row['id']; ?>" class="btn btn-info btn-sm">View</a>
+                                        <a href="/destinasi/app/view/admin/destinasi_view.php?id=<?= $row['id']; ?>" class="btn btn-info btn-sm">Lihat</a>
                                         <!-- <a href="#view?id=<?= $row['id']; ?>" class="btn btn-info btn-sm">View</a> -->
 
                                         <a href="/destinasi/app/view/admin/destinasi_edit.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm">Edit</a>
                                         <form action="/destinasi/app/model/destinasi_crud.php" method="POST" class="d-inline">
-                                            <button type="submit" onclick="confirmDelete()" name="delete_destinasi" value="<?= $row['id']; ?>" class="btn btn-danger btn-sm">Delete</button>
+                                            <button type="submit" name="delete_destinasi" value="<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus destinasi ini?')">Hapus</button>
+
+                                            <!-- <button type="submit" name="delete_destinasi" value="<?= $row['id']; ?>" class="btn btn-danger btn-sm">Hapus</button> -->
                                         </form>
                                     </td>
                                 </tr>
@@ -92,12 +95,8 @@ $query_run = mysqli_query($koneksi, $query);
     <!-- CONTENT -->
     <script src="/destinasi/public/assets/js/sidebar.js"></script>
     <script>
-        function confirmDelete() {
-            if (confirm("Apakah Anda yakin ingin menghapus destinasi ini?")) {
-                document.getElementById('deleteForm').submit();
-            }
-        }
     </script>
+
 </body>
 
 </html>

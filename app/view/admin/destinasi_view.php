@@ -23,8 +23,8 @@ $profil = get_user_profile($_SESSION['user_id']);
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h4>destinasi View Details
-									<a href="/destinasi/app/view/admin/destinasi.php" class="btn btn-danger float-end">BACK</a>
+								<h4>Lihat Destinasi Wisata
+									<a href="/destinasi/app/view/admin/destinasi.php" class="btn btn-danger float-end">Kembali</a>
 								</h4>
 							</div>
 							<div class="card-body">

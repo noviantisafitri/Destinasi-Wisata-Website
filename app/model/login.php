@@ -29,7 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         exit();
     } else {
-        echo "Email atau password salah. Silakan coba lagi.";
+        echo "<script>alert('Email atau password salah. Silakan coba lagi.');</script>";
+        echo "<script>window.history.back();</script>"; 
     }
 }
 ?>
