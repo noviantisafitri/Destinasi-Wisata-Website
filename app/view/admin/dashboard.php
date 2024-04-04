@@ -77,21 +77,21 @@ $favorites_count = get_favorites_count();
 
 			<ul class="box-info">
 				<li>
-					<i class='bx bxs-calendar-check'></i>
+					<i class='bx bxs-folder'></i>
 					<span class="text">
 						<h3><?php echo $destinasi_count; ?></h3>
 						<p>Destinasi Wisata</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-group'></i>
+					<i class='bx bxs-user'></i>
 					<span class="text">
 						<h3><?php echo $users_count; ?></h3>
 						<p>Users</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-dollar-circle'></i>
+					<i class='bx bxs-bookmark'></i>
 					<span class="text">
 						<h3><?php echo $favorites_count; ?></h3>
 						<p>Favorite</p>

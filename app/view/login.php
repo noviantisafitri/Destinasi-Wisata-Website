@@ -15,7 +15,7 @@
   <!-- Section: Design Block -->
   <section class="text-center">
     <!-- Background image -->
-    <div class="size-layar p-5 bg-image" style="background-image: url('/destinasi/uploads/rumah ulin.jpg'); height: 100vh; background-size: cover;"> <!-- Tambahkan inline CSS untuk gambar latar belakang -->
+    <div class="size-layar p-5 bg-image" style="background-image: url('/destinasi/uploads/Login.jpg'); height: 100vh; background-size: cover;"> <!-- Tambahkan inline CSS untuk gambar latar belakang -->
       <div style="display: flex; justify-content: center; align-items: center;">
         <div class="card mx-1 mx-md-5 shadow-5-strong" style="margin-top: 5rem; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px); width: 50%;">
           <div class="card-body px-md-5">
@@ -39,7 +39,7 @@
                   <!-- Checkbox -->
                   <div class="form-check mb-4 text-start">
                     <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Ingat saya</label>
+                    <label class="form-check-label" for="rememberMe">Remember Me</label>
                   </div>
 
 
@@ -50,7 +50,7 @@
                     </button>
                   </div>
                 </form>
-                <p class="mb-0">Belum memiliki akun? <a href="/destinasi/app/view/registrasi.php">Sign Up</a></p>
+                <p class="mb-0">Belum memiliki akun? <a href="/destinasi/app/view/registrasi.php" style="text-decoration: none;">Register</a></p>
               </div>
             </div>
           </div>

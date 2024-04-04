@@ -1,12 +1,12 @@
 <?php
-// session_start();
+session_start();
 require '/xampp/htdocs/destinasi/app/config/database.php';
 require '/xampp/htdocs/destinasi/app/model/users.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
-    header("Location: /destinasi/app/view/login.php");
-    exit();
-}
+// if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+//     header("Location: /destinasi/app/view/login.php");
+//     exit();
+// }
 
 // Ambil data profil pengguna dari database
 $profil = get_user_profile($_SESSION['user_id']);
@@ -75,7 +75,7 @@ $query_run = mysqli_query($koneksi, $query);
                                     </td>
                                     <td><?php
                                         $description = $row['description'];
-                                        echo strlen($description) > 20 ? substr($description, 20, 20) . '...' : $description;
+                                        echo strlen($description) > 20 ? substr($description, 0, 20) . '...' : $description;
                                         ?>
                                     </td>
                                     <td><?php echo $row['date_created']; ?></td>

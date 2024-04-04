@@ -5,9 +5,9 @@ require '/xampp/htdocs/destinasi/app/config/database.php';
 function setLoginCookies($email, $password, $role)
 {
     // Set cookies dengan masa aktif 30 hari
-    setcookie("email", $email, time() + (86400 * 30), "/");
-    setcookie("password", $password, time() + (86400 * 30), "/");
-    setcookie("role", $role, time() + (86400 * 30), "/");
+    setcookie("email", $email, time() + (86400 * 30));
+    setcookie("password", $password, time() + (86400 * 30));
+    setcookie("role", $role, time() + (86400 * 30));
 }
 
 // Cek apakah ada cookies login tersimpan
@@ -35,13 +35,13 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
             header("Location: /destinasi/app/view/admin/dashboard.php");
             exit();
         } else {
-            header("Location: /destinasi/app/view/user/home.php"); 
+            header("Location: /destinasi/app/view/user/home.php");
             exit();
         }
     }
 }
 
-// Jika tidak ada cookies login tersimpan atau login menggunakan cookies gagal, lanjutkan dengan proses login biasa
+// Jika tidak ada cookies login tersimpan
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -60,9 +60,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['role'] = $row['role'];
 
-        // Jika checkbox "Ingat saya" dicentang, atur cookies
+        // Jika checkbox dicentang, atur cookies
         if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == 'on') {
-            setLoginCookies($email, $password, $row['role']);
+            setcookie("email", $email, time() + (86400 * 30), "/");
+            setcookie("password", $password, time() + (86400 * 30), "/");
+            setcookie("role", $role, time() + (86400 * 30), "/");
         }
 
         // Memeriksa role user
@@ -70,13 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: /destinasi/app/view/admin/dashboard.php");
             exit();
         } else {
-            header("Location: /destinasi/app/view/user/home.php"); 
+            header("Location: /destinasi/app/view/user/home.php");
             exit();
         }
     } else {
         echo "<script>alert('Email atau password salah. Silakan coba lagi.');</script>";
-        echo "<script>window.history.back();</script>"; 
+        echo "<script>window.history.back();</script>";
         exit();
     }
 }
-?>

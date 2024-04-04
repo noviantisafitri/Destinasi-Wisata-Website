@@ -15,7 +15,7 @@
   <!-- Section: Design Block -->
   <section class="text-center">
     <!-- Background image -->
-    <div class="size-layar p-2 bg-image" style="background-image: url('/destinasi/uploads/rumah ulin.jpg'); min-height: 100vh; background-size: cover;">
+    <div class="size-layar p-2 bg-image" style="background-image: url('/destinasi/uploads/Login.jpg'); min-height: 100vh; background-size: cover;">
 
     <div style="display: flex; justify-content: center; align-items: center;">
       <div class="card mx-1 mx-md-5 shadow-5-strong mt-4" style="
@@ -26,7 +26,7 @@
         <div class="card-body px-md-5">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
-              <h2 class="fw-bold mb-5">Registrasi</h2>
+              <h2 class="fw-bold mb-5">Register</h2>
               <form action="/destinasi/app/model/registrasi.php" method="POST">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
@@ -67,7 +67,7 @@
                 Login
               </button> -->
                   <button type="submit" name="signup" class="btn btn-primary mb-4">
-                    Sign up
+                    Register
                   </button>
                   <!-- <a href="/tour-website/app/controller/registration_c.php" class="btn btn-primary btn-block mb-4">
                 Registrasi
@@ -75,7 +75,7 @@
                 </div>
 
               </form>
-              <p class="mb-0">Already have an account? <a href="/destinasi/app/view/login.php">Login</a></p>
+              <p class="mb-0">Already have an account? <a href="/destinasi/app/view/login.php" style="text-decoration: none;">Login</a></p>
             </div>
           </div>
         </div>
