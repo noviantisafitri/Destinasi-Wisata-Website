@@ -1,13 +1,13 @@
 <?php
-// session_start();
+session_start();
 require '/xampp/htdocs/destinasi/app/config/database.php';
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
   header("Location: /destinasi/app/view/login.php");
   exit();
-}
+} 
 
-$user_id = $_SESSION['user_id']; // Asumsikan user ID sudah disimpan dalam session
+$user_id = $_SESSION['user_id'];
 
 $query = "SELECT d.*, f.destination_id AS favorite_destination_id
           FROM destinasi d

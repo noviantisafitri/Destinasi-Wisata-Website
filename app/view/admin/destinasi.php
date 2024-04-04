@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require '/xampp/htdocs/destinasi/app/config/database.php';
 require '/xampp/htdocs/destinasi/app/model/users.php';
 

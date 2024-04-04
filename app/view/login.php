@@ -15,7 +15,7 @@
   <!-- Section: Design Block -->
   <section class="text-center">
     <!-- Background image -->
-    <div class="p-5 bg-image" style="background-image: url('/destinasi/uploads/rumah ulin.jpg'); height: 100vh; background-size: cover;"> <!-- Tambahkan inline CSS untuk gambar latar belakang -->
+    <div class="size-layar p-5 bg-image" style="background-image: url('/destinasi/uploads/rumah ulin.jpg'); height: 100vh; background-size: cover;"> <!-- Tambahkan inline CSS untuk gambar latar belakang -->
       <div style="display: flex; justify-content: center; align-items: center;">
         <div class="card mx-1 mx-md-5 shadow-5-strong" style="margin-top: 5rem; background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px); width: 50%;">
           <div class="card-body px-md-5">
