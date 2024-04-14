@@ -3,7 +3,7 @@ session_start();
 require '/xampp/htdocs/destinasi/app/config/database.php';
 require '/xampp/htdocs/destinasi/app/model/users.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+if (!isset($_SESSION['role'])) {
     header("Location: /destinasi/app/view/login.php");
     exit();
 }
@@ -27,7 +27,7 @@ $favorites_count = get_favorites_count();
 		<!-- SIDEBAR -->
 		<section id="sidebar">
 		<a href="#" class="brand">
-			<P class="m-2">DW</P>
+			<P class="m-2"><?= $_SESSION['role']; ?></P>
 			<span class="text"></span>
 		</a>
 		<ul class="side-menu top" style="padding: 0px;">
@@ -53,7 +53,7 @@ $favorites_count = get_favorites_count();
 		</ul>
 		<ul class="side-menu bottom" style="padding: 0px;">
 			<li class="">
-				<a href="/destinasi/app/view/login.php" class="logout">
+				<a href="/destinasi/app/model/logout.php" class="logout">
 					<i class='bx bxs-log-out-circle'></i>
 					<span class="text">Logout</span>
 				</a>

@@ -60,7 +60,7 @@ if (isset($_POST['save_profil'])) {
 		</ul>
 		<ul class="side-menu bottom" style="padding: 0px;">
 			<li class="">
-				<a href="/destinasi/app/view/login.php" class="logout">
+            <a href="/destinasi/app/model/logout.php" class="logout">
 					<i class='bx bxs-log-out-circle'></i>
 					<span class="text">Logout</span>
 				</a>

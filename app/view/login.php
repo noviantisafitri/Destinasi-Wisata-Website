@@ -1,3 +1,42 @@
+<?php
+  require '../config/database.php';
+
+  session_start();
+  
+  // Cek apakah ada cookies login tersimpan
+  if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+    // Jika ada, coba login menggunakan informasi cookies
+    $email = $_COOKIE['email'];
+    $password = $_COOKIE['password'];
+
+    $query = "SELECT * FROM users WHERE email=? AND password=?";
+    $stmt = mysqli_prepare($koneksi, $query);
+    mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    // kalau cookienya ada, set session
+    if ($result && $row = mysqli_fetch_assoc($result)) {
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['role'] = $row['role'];
+    }
+  }
+
+  // cek session
+  if (isset($_SESSION['role'])) {
+    if ($_SESSION['role'] == 'Admin') {
+        header("Location: /destinasi/app/view/admin/dashboard.php");
+        exit();
+    } else {
+        header("Location: /destinasi/app/view/user/home.php");
+        exit();
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

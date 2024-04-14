@@ -14,7 +14,12 @@
             $query = "SELECT * FROM destinasi";
             $result = mysqli_query($koneksi, $query);
             if ($result && mysqli_num_rows($result) > 0) {
+                $loop_count = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
+                    if ($loop_count >= 5) {
+                        break;
+                      }
+                      $loop_count++;
                     $image_path = $row['upload_path'];
             ?>
                     <li class="gallery-item">

@@ -5,7 +5,7 @@ require '/xampp/htdocs/destinasi/app/config/database.php';
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
   header("Location: /destinasi/app/view/login.php");
   exit();
-} 
+}
 
 $user_id = $_SESSION['user_id'];
 
@@ -34,7 +34,7 @@ if ($result) {
           }
           $loop_count++;
           $modal_count++;
-          
+
           $destination_id = $row['id'];
           $title = $row['title'];
           $location = $row['location'];
@@ -59,7 +59,7 @@ if ($result) {
                 </div>
                 <p class="card-subtitle"><a href="#"><?= $location ?></a></p>
                 <h3 class="h3 card-title"><a href="#"><?= $title ?></a></h3>
-                <p class="card-text" style="font-size: 12px;"><?= substr($description, 0, 150) ?> <?= strlen($description) > 150 ? '...' : '' ?></p>
+                <p class="card-text"><?= substr($description, 0, 150) ?> <?= strlen($description) > 150 ? '...' : '' ?></p>
                 <div class="btn-read" style="display: flex; justify-content: space-between; align-items: center; font-size: 16px;">
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $modal_count ?>">

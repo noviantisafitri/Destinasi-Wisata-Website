@@ -19,6 +19,8 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $title = $row['title'];
     $deskripsi = $row['dekripsi'];
+
+    $paragraf_array = explode("\n", $deskripsi);
 } else {
     // Jika blog tidak ditemukan, tampilkan pesan error
     echo "Blog tidak ditemukan.";
@@ -71,7 +73,15 @@ if ($result->num_rows > 0) {
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <p><?php echo $deskripsi; ?></p>
+                <?php
+                
+                if(isset($paragraf_array)) {
+                    foreach ($paragraf_array as $paragraf) {
+                        echo "<p style='text-align: justify;'>$paragraf</p>";
+                    }
+                }
+                ?>
+        
                 </div>
             </div>
         </div>

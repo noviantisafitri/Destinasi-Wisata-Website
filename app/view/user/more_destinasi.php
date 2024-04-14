@@ -84,7 +84,7 @@ if ($result) {
                                     </div>
                                     <p class="card-subtitle"><a href="#"><?= $location ?></a></p>
                                     <h3 class="h3 card-title"><a href="#"><?= $title ?></a></h3>
-                                    <p class="card-text" style="font-size: 12px;"><?= substr($description, 0, 150) ?> <?= strlen($description) > 150 ? '...' : '' ?></p>
+                                    <p class="card-text"><?= substr($description, 0, 150) ?> <?= strlen($description) > 150 ? '...' : '' ?></p>
                                     <div class="btn-read" style="display: flex; justify-content: space-between; align-items: center; font-size: 16px;">
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $modal_count ?>">
@@ -144,4 +144,4 @@ if ($result) {
                 });
             });
         });
-    </script>
+    </script>===
