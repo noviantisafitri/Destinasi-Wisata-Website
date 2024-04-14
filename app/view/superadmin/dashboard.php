@@ -3,7 +3,7 @@ session_start();
 require '../../config/database.php';
 require '../../model/users.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Superadmin') {
     header("Location: ../../view/login.php");
     exit();
 }
@@ -21,7 +21,7 @@ $users_count = get_users_count();
 $favorites_count = get_favorites_count();
 ?>
 
-<?php include '../../view/admin/inc/head.php'; ?>
+<?php include '../../view/superadmin/inc/head.php'; ?>
 
 <body>
 		<!-- SIDEBAR -->
@@ -45,9 +45,9 @@ $favorites_count = get_favorites_count();
 				</a>
 			</li>
 			<li>
-				<a href="destinasi.php">
+				<a href="user.php">
 					<i class='bx bxs-folder'></i>
-					<span class="text">Destinasi</span>
+					<span class="text">Users</span>
 				</a>
 			</li>
 		</ul>
@@ -64,7 +64,7 @@ $favorites_count = get_favorites_count();
 
 	<!-- CONTENT -->
 	<section id="content">
-	<?php include '../admin/inc/navbar.php'; ?>
+	<?php include '../superadmin/inc/navbar.php'; ?>
 		<!-- MAIN -->
 		<main>
 			<div class="head-title">

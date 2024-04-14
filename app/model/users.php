@@ -1,64 +1,11 @@
 <?php
-require '/xampp/htdocs/destinasi/app/config/database.php';
+require '../../config/database.php';
 
 function get_user_profile($user_id) {
     global $koneksi;
     $query = "SELECT * FROM users WHERE id = '$user_id'";
     $result = mysqli_query($koneksi, $query);
     return mysqli_fetch_assoc($result);
-}
-
-function update_user_profile($user_id, $first_name, $last_name, $email, $password, $foto) {
-    global $koneksi;
-
-    // Update kolom 'foto' jika ada foto baru
-    if ($foto && $foto["name"]) {
-        $target_dir = "/xampp/htdocs/destinasi/uploads/";
-        $target_file = $target_dir . basename($foto["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        $check = getimagesize($foto["tmp_name"]);
-        if ($check === false) {
-            echo "File tersebut bukan gambar";
-            $uploadOk = 0;
-        }
-
-        if (file_exists($target_file)) {
-            echo "Gambar sudah ada";
-            $uploadOk = 0;
-        }
-
-        if ($foto["size"] > 5000000) {
-            echo "Ukuran gambar terlalu besar";
-            $uploadOk = 0;
-        }
-
-        $allowedFormats = array("jpg", "jpeg", "png", "gif");
-        if (!in_array($imageFileType, $allowedFormats)) {
-            echo "Hanya untuk format JPG, JPEG, PNG & GIF yang diizinkan";
-            $uploadOk = 0;
-        }
-
-        if ($uploadOk == 1) {
-            if (move_uploaded_file($foto["tmp_name"], $target_file)) {
-                $query_update_foto = "UPDATE users SET foto='" . basename($foto["name"]) . "' WHERE id='$user_id'";
-                $result_update_foto = mysqli_query($koneksi, $query_update_foto);
-                if (!$result_update_foto) {
-                    echo "Gagal memperbarui foto profil dalam database";
-                    exit();
-                }
-            } else {
-                echo "Error dalam mengupload gambar: " . $foto["error"];
-            }
-        }
-    }
-
-    // Update kolom lain dalam database
-    $query_update = "UPDATE users SET first_name='$first_name', last_name='$last_name', email='$email', password='$password' WHERE id='$user_id'";
-    $result_update = mysqli_query($koneksi, $query_update);
-
-    return $result_update;
 }
 
 function get_destinasi_count() {

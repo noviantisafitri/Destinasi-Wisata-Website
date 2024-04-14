@@ -3,7 +3,7 @@ session_start();
 require '../../config/database.php';
 require '../../model/users.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Superadmin') {
     header("Location: ../../view/login.php");
     exit();
 }
@@ -12,15 +12,15 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
 $profil = get_user_profile($_SESSION['user_id']);
 ?>
 
-<?php include '../admin/inc/head.php'; ?>
+<?php include '../superadmin/inc/head.php'; ?>
 
 <body>
     <!-- SIDEBAR -->
-    <?php include '../admin/inc/sidebar.php'; ?>
+    <?php include '../superadmin/inc/sidebar.php'; ?>
 
     <!-- CONTENT -->
     <section id="content">
-        <?php include '../admin/inc/navbar.php'; ?>
+        <?php include '../superadmin/inc/navbar.php'; ?>
         <!-- MAIN -->
 		<main>
 			<div class="container">
@@ -28,43 +28,51 @@ $profil = get_user_profile($_SESSION['user_id']);
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h4>Lihat Destinasi Wisata
-									<a href="destinasi.php" class="btn btn-danger float-end">Kembali</a>
+								<h4>Lihat User
+									<a href="user.php" class="btn btn-danger float-end">Kembali</a>
 								</h4>
 							</div>
 							<div class="card-body">
 
 								<?php
 								if (isset($_GET['id'])) {
-									$destinasi_id = mysqli_real_escape_string($koneksi, $_GET['id']);
-									$query = "SELECT * FROM destinasi WHERE id='$destinasi_id' ";
+									$user_id = mysqli_real_escape_string($koneksi, $_GET['id']);
+									$query = "SELECT * FROM users WHERE id='$user_id' ";
 									$query_run = mysqli_query($koneksi, $query);
 
 									if (mysqli_num_rows($query_run) > 0) {
-										$destinasi = mysqli_fetch_array($query_run);
+										$user = mysqli_fetch_array($query_run);
 								?>
 
 										<div class="mb-3">
-											<label>Title</label>
+											<label>Fisrt Name</label>
 											<p class="form-control">
-												<?= $destinasi['title']; ?>
+												<?= $user['first_name']; ?>
 											</p>
 										</div>
 										<div class="mb-3">
-											<label>Location</label>
+											<label>Last Name</label>
 											<p class="form-control">
-												<?= $destinasi['location']; ?>
+												<?= $user['last_name']; ?>
 											</p>
 										</div>
 										<div class="mb-3">
-											<label>Description</label>
-											<textarea name="description" id="your_summernote" rows="4" class="form-control"><?= $destinasi['description']; ?></textarea>
+											<label>Email</label>
+											<p class="form-control">
+												<?= $user['email']; ?>
+											</p>
+										</div>
+										<div class="mb-3">
+											<label>Password</label>
+											<p class="form-control">
+												<?= $user['password']; ?>
+											</p>
+										</div>
 
-										</div>
 										<div class="mb-3">
-											<label>Gambar Destinasi</label>
+											<label>Foto Profile</label>
 											<br>
-											<img src="../../../uploads/<?= $destinasi['upload_path']; ?>" alt="Gambar Destinasi" style="width: 25%; margin-top: 3px;">
+											<img src="../../../uploads/<?= $user['foto']; ?>" alt="Foto Profile" style="width: 25%; margin-top: 3px;">
 										</div>
 
 								<?php
@@ -82,20 +90,6 @@ $profil = get_user_profile($_SESSION['user_id']);
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 			<!-- Summernote JS - CDN Link -->
 			<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-			<script>
-				function disableSummernote() {
-					$('#your_summernote').summernote('disable');
-				}
-				$(document).ready(function() {
-					disableSummernote();
-				});
-
-				$(document).ready(function() {
-					$("#your_summernote").summernote();
-					$('.dropdown-toggle').dropdown();
-				});
-			</script>
-			<!-- //Summernote JS - CDN Link -->
 		</main>
 		<!-- MAIN -->
 	</section>

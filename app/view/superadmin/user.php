@@ -3,8 +3,8 @@ session_start();
 require '../../config/database.php';
 require '../../model/users.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
-    header("Location: ../../view/login.php");
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Superadmin') {
+    header("last_name: ../../view/login.php");
     exit();
 }
 
@@ -12,25 +12,25 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
 $profil = get_user_profile($_SESSION['user_id']);
 
 $entries = isset($_GET['entries']) ? $_GET['entries'] : 5;
-$query = "SELECT * FROM destinasi";
+$query = "SELECT * FROM users WHERE role='Admin'";
 $query_run = mysqli_query($koneksi, $query);
 ?>
 
-<?php include '../admin/inc/head.php'; ?>
+<?php include '../superadmin/inc/head.php'; ?>
 
 <body>
     <!-- SIDEBAR -->
-    <?php include '../admin/inc/sidebar.php'; ?>
+    <?php include '../superadmin/inc/sidebar.php'; ?>
 
     <!-- CONTENT -->
     <section id="content">
-        <?php include '../admin/inc/navbar.php'; ?>
+        <?php include '../superadmin/inc/navbar.php'; ?>
         <!-- MAIN -->
         
         <main>
-            <div class="head-title">
+            <div class="head-first_name">
                 <div class="left">
-                    <h1>Destinasi Wisata</h1>
+                    <h1>Daftar Admin</h1>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@ $query_run = mysqli_query($koneksi, $query);
                     <div class="head">
                         <!-- <h3>Destinasi Wisata</h3> -->
                         <h3></h3>
-                        <a href="destinasi_create.php" class="add_destinasi btn btn-primary float-end mb-5">Tambah Destinasi</a>
+                        <a href="user_create.php" class="add_destinasi btn btn-primary float-end mb-5">Tambah User</a>
                         <?php include('message.php'); ?>
 
                     </div>
@@ -47,10 +47,9 @@ $query_run = mysqli_query($koneksi, $query);
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Destinasi</th>
-                                <th scope="col">Lokasi</th>
-                                <th scope="col">Deskripsi</th>
-                                <th scope="col">Waktu</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -64,30 +63,26 @@ $query_run = mysqli_query($koneksi, $query);
                                         ?>
                                     </th>
                                     <td><?php
-                                        $title = $row['title'];
-                                        echo strlen($title) > 15 ? substr($title, 0, 15) . '...' : $title;
+                                        $first_name = $row['first_name'];
+                                        echo strlen($first_name) > 15 ? substr($first_name, 0, 15) . '...' : $first_name;
                                         ?>
                                     </td>
                                     <td><?php
-                                        $location = $row['location'];
-                                        echo strlen($location) > 15 ? substr($location, 0, 15) . '...' : $location;
+                                        $last_name = $row['last_name'];
+                                        echo strlen($last_name) > 15 ? substr($last_name, 0, 15) . '...' : $last_name;
                                         ?>
                                     </td>
                                     <td><?php
-                                        $description = $row['description'];
-                                        echo strlen($description) > 20 ? substr($description, 0, 20) . '...' : $description;
+                                        $email = $row['email'];
+                                        echo strlen($email) > 20 ? substr($email, 0, 20) . '...' : $email;
                                         ?>
                                     </td>
-                                    <td><?php echo $row['date_created']; ?></td>
                                     <td class="tabel-button">
-                                        <a href="destinasi_view.php?id=<?= $row['id']; ?>" class="btn btn-info btn-sm">Lihat</a>
+                                        <a href="user_view.php?id=<?= $row['id']; ?>" class="btn btn-info btn-sm">Lihat</a>
                                         <!-- <a href="#view?id=<?= $row['id']; ?>" class="btn btn-info btn-sm">View</a> -->
 
-                                        <a href="destinasi_edit.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                        <form action="../../model/destinasi_crud.php" method="POST" class="d-inline">
-                                            <button type="submit" name="delete_destinasi" value="<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus destinasi ini?')">Hapus</button>
-
-                                            <!-- <button type="submit" name="delete_destinasi" value="<?= $row['id']; ?>" class="btn btn-danger btn-sm">Hapus</button> -->
+                                        <form action="../../model/user_crud.php" method="POST" class="d-inline">
+                                            <button type="submit" name="delete_user" value="<?= $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus User ini?')">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>

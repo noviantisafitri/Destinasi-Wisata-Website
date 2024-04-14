@@ -1,4 +1,4 @@
 <?php 
-    header("Location: /destinasi/app/view/login.php");
+    header("Location: ./app/view/login.php");
     exit;
 ?>

@@ -7,7 +7,7 @@
         Selamat datang di Kalimantan Timur! <br> Temukan keindahan dan keunikan destinasi wisata di wilayah ini. Nikmati momen berharga bersama keluarga dan teman-teman Anda sambil menjelajahi tempat-tempat menakjubkan yang menunggu untuk ditemukan.
         </p>
 
-        <a href="/destinasi/app/view/user/#destination" class="btn btn-primary">Pelajari lebih lanjut</a>
+        <a href="../user/home.php#destination" class="btn btn-primary">Pelajari lebih lanjut</a>
     </div>
     </div>
 </section>

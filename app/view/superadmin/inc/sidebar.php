@@ -19,9 +19,9 @@
 				</a>
 			</li>
 			<li class="active">
-				<a href="destinasi.php">
+				<a href="user.php">
 					<i class='bx bxs-folder'></i>
-					<span class="text">Destinasi</span>
+					<span class="text">Users</span>
 				</a>
 			</li>
 		</ul>

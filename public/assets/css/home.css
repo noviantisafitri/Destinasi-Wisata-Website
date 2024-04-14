@@ -368,7 +368,7 @@ body { background: var(--white); }
 \*-----------------------------------*/
 
 .hero {
-  background-image: url("/destinasi/uploads/rumah ulin.jpg");
+  background-image: url("../../../uploads/Rumah-Ulin-Arya.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

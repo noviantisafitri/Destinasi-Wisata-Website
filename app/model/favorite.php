@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
+require '../config/database.php';
 
 if (isset($_POST['destination_id']) && isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];

@@ -3,7 +3,7 @@ session_start();
 require '../../config/database.php';
 require '../../model/users.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Superadmin') {
     header("Location: ../../view/login.php");
     exit();
 }
@@ -12,15 +12,15 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
 $profil = get_user_profile($_SESSION['user_id']);
 ?>
 
-<?php include '../admin/inc/head.php'; ?>
+<?php include '../superadmin/inc/head.php'; ?>
 
 <body>
     <!-- SIDEBAR -->
-    <?php include '../admin/inc/sidebar.php'; ?>
+    <?php include '../superadmin/inc/sidebar.php'; ?>
 
     <!-- CONTENT -->
     <section id="content">
-        <?php include '../admin/inc/navbar.php'; ?>
+        <?php include '../superadmin/inc/navbar.php'; ?>
         <!-- MAIN -->
         <main>
             <div class="container">
@@ -29,32 +29,36 @@ $profil = get_user_profile($_SESSION['user_id']);
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Tambah Destinasi Wisata
-                                    <a href="destinasi.php" class="btn btn-danger float-end">Kembali</a>
+                                <h4>Tambah User
+                                    <a href="user.php" class="btn btn-danger float-end">Kembali</a>
                                 </h4>
                             </div>
                             <div class="card-body">
-                                <form action="../../model/destinasi_crud.php" method="POST" enctype="multipart/form-data">
+                                <form action="../../model/user_crud.php" method="POST" enctype="multipart/form-data">
 
                                     <div class="mb-3">
-                                        <label>Title</label>
-                                        <input type="text" name="title" class="form-control">
+                                        <label>First Name</label>
+                                        <input type="text" name="first_name" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Location</label>
-                                        <input type="text" name="location" class="form-control">
+                                        <label>Last Name</label>
+                                        <input type="text" name="last_name" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Description</label>
+                                        <label>Email</label>
+                                        <input type="text" name="email" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Password</label>
+                                        <input type="text" name="password" class="form-control">
+                                    </div>
+                                    
                                         <div class="mb-3">
-                                            <textarea name="description" id="your_summernote" class="form-control" rows="4"></textarea>
+                                            <label>Upload Foto</label>
+                                            <input type="file" name="foto" class="form-control">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Upload Gambar</label>
-                                            <input type="file" name="upload_path" class="form-control">
-                                        </div>
-                                        <div class="mb-3">
-                                            <button type="submit" name="save_destinasi" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" name="save_user" class="btn btn-primary">Simpan</button>
                                         </div>
 
                                 </form>
@@ -67,13 +71,6 @@ $profil = get_user_profile($_SESSION['user_id']);
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Summernote JS - CDN Link -->
             <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
-            <script>
-                $(document).ready(function() {
-                    $("#your_summernote").summernote();
-                    $('.dropdown-toggle').dropdown();
-                });
-            </script>
             <!-- //Summernote JS - CDN Link -->
         </main>
         <!-- MAIN -->

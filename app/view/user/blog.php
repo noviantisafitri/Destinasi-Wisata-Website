@@ -1,7 +1,7 @@
 <?php
-require '/xampp/htdocs/destinasi/app/config/database.php';
+require '../../config/database.php';
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
-    header("Location: /destinasi/app/view/login.php");
+    header("Location: ../../view/login.php");
     exit();
 }
 
@@ -27,7 +27,7 @@ $result = $koneksi->query($query);
                     <li>
                         <div class="package-card">
                             <figure class="card-banner">
-                                <img src="/destinasi/uploads/<?= $row['path_gambar'] ?>" alt="<?= $title ?>" loading="lazy" style="width: 100%; height: 100%">
+                                <img src="../../../uploads/<?= $row['path_gambar'] ?>" alt="<?= $title ?>" loading="lazy" style="width: 100%; height: 100%">
                             </figure>
                             <div class="card-content">
                                 <h3 class="h3 card-title"><?php echo $row['title']; ?></h3>
@@ -36,7 +36,7 @@ $result = $koneksi->query($query);
                                         echo strlen($deskripsi) > 250 ? substr($deskripsi, 0, 250) . '...' : $deskripsi;
                                         ?></p>
                                 
-                                <a href="/destinasi/app/view/user/isi_blog.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary">Baca</a>
+                                <a href="isi_blog.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary">Baca</a>
                             <!-- <a href="/destinasi/app/view/user/isi_blog.php" class="btn btn-secondary">Baca</a> -->
                             </div>
                         </div>

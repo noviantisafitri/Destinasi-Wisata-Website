@@ -24,7 +24,7 @@
             ?>
                     <li class="gallery-item">
                         <figure class="gallery-image">
-                            <img class="galery-img" src="/destinasi/uploads/<?= $image_path ?>" alt="Gallery image">
+                            <img class="galery-img" src="../../../uploads/<?= $image_path ?>" alt="Gallery image">
                         </figure>
                     </li>
             <?php

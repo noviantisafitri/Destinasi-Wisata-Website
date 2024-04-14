@@ -1,9 +1,8 @@
 <?php
 session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
-
+require '../../config/database.php';
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
-    header("Location: /destinasi/app/view/login.php");
+    header("Location: ../../view/login.php");
     exit();
 }
 
@@ -37,7 +36,7 @@ if ($result) {
     - custom css link
   -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="/destinasi/public/assets/css/home.css">
+        <link rel="stylesheet" href="../../../public/assets/css/home.css">
 
         <!-- 
     - google font link
@@ -48,7 +47,7 @@ if ($result) {
     </head>
 
     <body>
-        <?php include '/xampp/htdocs/destinasi/app/view/user/navbar_search.php'; ?>
+        <?php include 'navbar_search.php'; ?>
         <section class="popular" id="destination">
             <div class="container">
                 <p class="section-subtitle">Telusuri Tempat</p>
@@ -73,7 +72,7 @@ if ($result) {
                         <li>
                             <div class="popular-card">
                                 <figure class="card-img">
-                                    <img src="/destinasi/uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
+                                    <img src="../../../uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
                                 </figure>
                                 <div class="card-content">
                                     <!-- Button favorite -->
@@ -99,7 +98,7 @@ if ($result) {
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <img src="/destinasi/uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy" style="width: 100%;">
+                                                        <img src="../../../uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy" style="width: 100%;">
                                                         <a href="#"><?= $location ?></a>
                                                         <?= $description ?>
                                                     </div>
@@ -144,4 +143,4 @@ if ($result) {
                 });
             });
         });
-    </script>===
+    </script>

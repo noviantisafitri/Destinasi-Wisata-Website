@@ -11,5 +11,5 @@ session_destroy();
 
 unset($_SESSION);
 
-header('Location: /destinasi/app/view/login.php');
+header('Location: ../view/login.php');
 exit();

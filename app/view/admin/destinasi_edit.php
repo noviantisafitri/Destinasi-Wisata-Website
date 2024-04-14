@@ -1,38 +1,37 @@
 <?php
 session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
-require '/xampp/htdocs/destinasi/app/model/users.php';
+require '../../config/database.php';
+require '../../model/users.php';
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
-    header("Location: /destinasi/app/view/login.php");
+    header("Location: ../../view/login.php");
     exit();
 }
-
 // Ambil data profil pengguna dari database
 $profil = get_user_profile($_SESSION['user_id']);
 ?>
 
-<?php include '/xampp/htdocs/destinasi/app/view/admin/inc/head.php'; ?>
+<?php include '../admin/inc/head.php'; ?>
 
 <body>
     <!-- SIDEBAR -->
-    <?php include '/xampp/htdocs/destinasi/app/view/admin/inc/sidebar.php'; ?>
+    <?php include '../admin/inc/sidebar.php'; ?>
 
     <!-- CONTENT -->
     <section id="content">
-        <?php include '/xampp/htdocs/destinasi/app/view/admin/inc/navbar.php'; ?>
+        <?php include '../admin/inc/navbar.php'; ?>
         <!-- MAIN -->
         <main>
             <div class="container">
 
-                <?php include('/xampp/htdocs/destinasi/app/view/admin/message.php'); ?>
+                <?php include('message.php'); ?>
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4>Edit Destinasi Wisata
-                                    <a href="/destinasi/app/view/admin/destinasi.php" class="btn btn-danger float-end">Kembali</a>
+                                    <a href="destinasi.php" class="btn btn-danger float-end">Kembali</a>
                                 </h4>
                             </div>
                             <div class="card-body">
@@ -46,7 +45,7 @@ $profil = get_user_profile($_SESSION['user_id']);
                                     if (mysqli_num_rows($query_run) > 0) {
                                         $destinasi = mysqli_fetch_array($query_run);
                                 ?>
-                                        <form action="/destinasi/app/model/destinasi_crud.php" method="POST" enctype="multipart/form-data">
+                                        <form action="../../model/destinasi_crud.php" method="POST" enctype="multipart/form-data">
                                             <input type="hidden" name="destinasi_id" value="<?= $destinasi['id']; ?>">
 
                                             <div class="mb-3">
@@ -65,7 +64,7 @@ $profil = get_user_profile($_SESSION['user_id']);
                                             <div class="mb-3">
                                                 <label>Upload Gambar</label>
                                                 <br>
-                                                <img src="/destinasi/uploads/<?= $destinasi['upload_path']; ?>" alt="Gambar Destinasi" style="width: 25%; margin-top: 5px; margin-bottom: 5px;">
+                                                <img src="../../../uploads/<?= $destinasi['upload_path']; ?>" alt="Gambar Destinasi" style="width: 25%; margin-top: 5px; margin-bottom: 5px;">
                                                 <input type="file" name="upload_path" class="form-control">
 
                                             </div>
@@ -104,7 +103,7 @@ $profil = get_user_profile($_SESSION['user_id']);
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-    <script src="/destinasi/public/assets/js/sidebar.js"></script>
+    <script src="../../../public/assets/js/sidebar.js"></script>
 </body>
 
 </html>

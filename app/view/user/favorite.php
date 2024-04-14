@@ -1,9 +1,8 @@
 <?php
 session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
-
+require '../../config/database.php';
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
-    header("Location: /destinasi/app/view/login.php");
+    header("Location: ../../view/login.php");
     exit();
 }
 ?>
@@ -24,7 +23,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
     - custom css link
   -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/destinasi/public/assets/css/home.css">
+    <link rel="stylesheet" href="../../../public/assets/css/home.css">
 
     <!-- 
     - google font link
@@ -35,7 +34,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
 </head>
 
 <body>
-    <?php include '/xampp/htdocs/destinasi/app/view/user/navbar.php'; ?>
+    <?php include 'navbar.php'; ?>
     <section class="popular" id="destination">
         <div class="container">
 
@@ -74,7 +73,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
                             <li>
                                 <div class="popular-card">
                                     <figure class="card-img">
-                                        <img src="/destinasi/uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
+                                        <img src="../../../uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
                                     </figure>
                                     <div class="card-content">
                                         <div class="card-rating">
@@ -138,7 +137,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
                 button.addEventListener('click', function() {
                     const destinationId = this.getAttribute('data-destination-id');
                     const xhr = new XMLHttpRequest();
-                    xhr.open('POST', '/destinasi/app/model/delete_favorite.php');
+                    xhr.open('POST', '../../model/delete_favorite.php');
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.onload = function() {
                         if (xhr.status === 200) {

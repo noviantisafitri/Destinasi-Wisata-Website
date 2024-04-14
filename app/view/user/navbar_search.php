@@ -1,5 +1,9 @@
 <?php
-require '/xampp/htdocs/destinasi/app/config/database.php';
+require '../../config/database.php';
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
+  header("Location: ../../view/login.php");
+  exit();
+}
 
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
@@ -40,7 +44,7 @@ if (isset($_GET['search'])) {
                 <li>
                 <div class="popular-card">
               <figure class="card-img">
-                <img src="/destinasi/uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
+                <img src="../../../uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
               </figure>
               <div class="card-content">
                 <!-- Button favorite -->

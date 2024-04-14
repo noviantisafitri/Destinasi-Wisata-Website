@@ -1,5 +1,5 @@
 <?php
-require '/xampp/htdocs/destinasi/app/config/database.php';
+require '../config/database.php';
 
 // Fungsi untuk mengatur cookies
 function setLoginCookies($email, $password, $role)
@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['first_name'] = $row['first_name'];
         $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['role'] = $row['role'];
+        $_SESSION['foto'] = $row['foto'];
 
         // Jika checkbox dicentang, atur cookies
         if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == 'on') {
@@ -38,10 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Memeriksa role user
         if ($row['role'] == 'Admin') {
-            header("Location: /destinasi/app/view/admin/dashboard.php");
+            header("Location: ../view/admin/dashboard.php");
             exit();
-        } else {
-            header("Location: /destinasi/app/view/user/home.php");
+        } else if ($row['role'] == 'Pengguna') {
+            header("Location: ../view/user/home.php");
+            exit();
+        } else if ($row['role'] == 'Superadmin'){
+            header("Location: ../view/superadmin/dashboard.php");
             exit();
         }
     } else {

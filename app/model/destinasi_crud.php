@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
+require '../config/database.php';
 
 // Create
 if (isset($_POST['save_destinasi'])) {
@@ -10,7 +10,7 @@ if (isset($_POST['save_destinasi'])) {
 
     // File upload
     if (!empty($_FILES["upload_path"]["name"])) { // Pengecekan apakah file dipilih
-        $target_dir = "/xampp/htdocs/destinasi/uploads/";
+        $target_dir = "../../uploads/";
         $target_file = $target_dir . basename($_FILES["upload_path"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -84,10 +84,6 @@ if (isset($_POST['save_destinasi'])) {
     }
 }
 
-
-
-
-
 // Update
 if (isset($_POST['update_destinasi'])) {
     $destinasi_id = mysqli_real_escape_string($koneksi, $_POST['destinasi_id']);
@@ -100,7 +96,7 @@ if (isset($_POST['update_destinasi'])) {
     // Jika pengguna mengunggah gambar baru
     if ($_FILES["upload_path"]["name"]) {
         // File upload
-        $target_dir = "/xampp/htdocs/destinasi/uploads/";
+        $target_dir = "../../uploads/";
         $target_file = $target_dir . basename($_FILES["upload_path"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

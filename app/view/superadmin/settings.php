@@ -3,7 +3,7 @@ session_start();
 require '../../config/database.php';
 require '../../model/users.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Superadmin') {
     header("Location: ../../view/login.php");
     exit();
 }
@@ -98,7 +98,7 @@ if (isset($_POST['save_profil'])) {
 
 ?>
 
-<?php include '../../view/admin/inc/head.php'; ?>
+<?php include '../../view/superadmin/inc/head.php'; ?>
 
 <body>
     <!-- SIDEBAR -->
@@ -122,9 +122,9 @@ if (isset($_POST['save_profil'])) {
                 </a>
             </li>
             <li>
-                <a href="destinasi.php">
+                <a href="user.php">
                     <i class='bx bxs-folder'></i>
-                    <span class="text">Destinasi</span>
+                    <span class="text">Users</span>
                 </a>
             </li>
         </ul>
@@ -141,7 +141,7 @@ if (isset($_POST['save_profil'])) {
 
     <!-- CONTENT -->
     <section id="content">
-        <?php include '../../view/admin/inc/navbar.php'; ?>
+        <?php include '../../view/superadmin/inc/navbar.php'; ?>
         <!-- MAIN -->
         <main>
             <div class="head-title">

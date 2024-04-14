@@ -71,4 +71,4 @@
     </div>
     </div>
 </section>
-<script src="/destinasi/public/assets/js/contact.js"></script>
+<script src="../../../public/assets/js/contact.js"></script>

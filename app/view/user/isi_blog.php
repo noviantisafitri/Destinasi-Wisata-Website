@@ -1,9 +1,8 @@
 <?php
 session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
-
+require '../../config/database.php';
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
-    header("Location: /destinasi/app/view/login.php");
+    header("Location: ../../view/login.php");
     exit();
 }
 
@@ -43,16 +42,16 @@ if ($result->num_rows > 0) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link href="/destinasi/public/assets/css/blog.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/destinasi/public/assets/css/home.css">
+    <link rel="stylesheet" href="../../../public/assets/css/home.css">
 
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <?php include '/xampp/htdocs/destinasi/app/view/user/navbar.php'; ?>
+    <?php include 'navbar.php'; ?>
     <!-- NAVBAR -->
 
 
@@ -73,15 +72,15 @@ if ($result->num_rows > 0) {
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                <?php
-                
-                if(isset($paragraf_array)) {
-                    foreach ($paragraf_array as $paragraf) {
-                        echo "<p style='text-align: justify;'>$paragraf</p>";
+                    <?php
+
+                    if (isset($paragraf_array)) {
+                        foreach ($paragraf_array as $paragraf) {
+                            echo "<p style='text-align: justify;'>$paragraf</p>";
+                        }
                     }
-                }
-                ?>
-        
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -89,7 +88,7 @@ if ($result->num_rows > 0) {
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="/destinasi/public/assets/js/blog.js"></script>
+    <script src="../../../public/assets/js/blog.js"></script>
 </body>
 
 </html>

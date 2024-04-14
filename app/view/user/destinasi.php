@@ -1,9 +1,8 @@
 <?php
 // session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
-
+require '../../config/database.php';
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role'] !== 'Pengguna') {
-  header("Location: /destinasi/app/view/login.php");
+  header("Location: ../../view/login.php");
   exit();
 }
 
@@ -48,7 +47,7 @@ if ($result) {
           <li>
             <div class="popular-card">
               <figure class="card-img">
-                <img src="/destinasi/uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
+                <img src="../../../uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy">
               </figure>
               <div class="card-content">
                 <!-- Button favorite -->
@@ -74,7 +73,7 @@ if ($result) {
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <img src="/destinasi/uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy" style="width: 100%;">
+                          <img src="../../../uploads/<?= $upload_path ?>" alt="<?= $title ?>" loading="lazy" style="width: 100%;">
                           <a href="#"><?= $location ?></a>
                           <?= $description ?>
                         </div>
@@ -91,7 +90,7 @@ if ($result) {
         ?>
       </ul>
       <div class="more-destination-container" style="display: flex; justify-content: center; align-items: center;">
-        <a href="/destinasi/app/view/user/more_destinasi.php" class="btn btn-primary">Lihat semua destinasi</a>
+        <a href="more_destinasi.php" class="btn btn-primary">Lihat semua destinasi</a>
       </div>
     </div>
   </section>
@@ -108,7 +107,7 @@ if ($result) {
       button.addEventListener('click', function() {
         const destinationId = this.getAttribute('data-destination-id');
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/destinasi/app/model/favorite.php');
+        xhr.open('POST', 'favorite.php');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onload = function() {
           if (xhr.status === 200) {

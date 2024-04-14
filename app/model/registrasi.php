@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '/xampp/htdocs/destinasi/app/config/database.php';
+require '../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
     $first_name = $_POST['first_name'];
